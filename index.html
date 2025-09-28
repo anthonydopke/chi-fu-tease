@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>🎲 Chi-Fu-Tease Casino</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🎲 Chi-Fu-Tease Casino</h1>
+      <p class="subtitle">Premium Dice Game</p>
+    </div>
+
+    <!-- Setup -->
+    <div id="setup" class="setup-card fade-in-up">
+      <h3>🎯 Configuration de la partie</h3>
+      <div class="input-group">
+        <input type="text" id="playersInput" class="fancy-input" placeholder="Entrez les noms des joueurs (séparés par des virgules)">
+      </div>
+      <button class="btn btn-primary" onclick="startGame()">🚀 Lancer la partie</button>
+    </div>
+
+    <!-- Game Layout -->
+    <div id="gameLayout" class="game-layout" style="display: none;">
+      <!-- Scoreboard -->
+      <div class="game-panel scoreboard">
+        <div id="scoreboard"></div>
+      </div>
+
+      <!-- Main Game -->
+      <div class="game-panel main-game">
+        <div id="currentPlayer" class="current-player"></div>
+        
+        <button id="rollBtn" class="btn btn-success pulse" onclick="rollDice()">🎲 Lancer le dé</button>
+        
+        <!-- 3D Dice -->
+        <div class="dice-container">
+          <div class="dice" id="dice">
+            <div class="face one"><span class="pip center"></span></div>
+            <div class="face two">
+              <span class="pip top-left"></span><span class="pip bottom-right"></span>
+            </div>
+            <div class="face three">
+              <span class="pip top-left"></span><span class="pip center"></span><span class="pip bottom-right"></span>
+            </div>
+            <div class="face four">
+              <span class="pip top-left"></span><span class="pip top-right"></span>
+              <span class="pip bottom-left"></span><span class="pip bottom-right"></span>
+            </div>
+            <div class="face five">
+              <span class="pip top-left"></span><span class="pip top-right"></span>
+              <span class="pip center"></span><span class="pip bottom-left"></span><span class="pip bottom-right"></span>
+            </div>
+            <div class="face six">
+              <span class="pip top-left"></span><span class="pip top-right"></span>
+              <span class="pip middle-left"></span><span class="pip middle-right"></span>
+              <span class="pip bottom-left"></span><span class="pip bottom-right"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-area">
+          <div id="result" class="result-content"></div>
+        </div>
+
+        <button id="nextBtn" class="btn btn-danger" onclick="nextPlayer()" style="display:none;">➡️ Joueur suivant</button>
+      </div>
+
+      <!-- Side Panel -->
+      <div class="game-panel side-panel">
+        <h3>🃏 Règles rapides</h3>
+        <div style="text-align: left; font-size: 0.9rem; line-height: 1.6;">
+          <p><strong>1:</strong> 10 gorgées 💀</p>
+          <p><strong>2:</strong> 5 gorgées 🍺</p>
+          <p><strong>3:</strong> 1 gorgée 🥤</p>
+          <p><strong>4:</strong> Chi-Fu-Tease ⚔️</p>
+          <p><strong>5:</strong> Distribue 5 gorgées 🎁</p>
+          <p><strong>6:</strong> Carte mystère 🃏</p>
+          <br>
+          <p><em>Bonus aléatoires : Bataille & Bus</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pile ou Face -->
+  <div id="coinModal" class="modal">
+    <div class="modal-content">
+      <h3>🪙 Bonus Game</h3>
+      <div id="coin" class="coin">🪙</div>
+      <div id="coinResult"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
